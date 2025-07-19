@@ -1,0 +1,385 @@
+:root {
+    /* Variables for colors */
+    --primary-text-color: #333;
+    --secondary-text-color: #555;
+    --light-text-color: #888;
+    --border-color: #ccc;
+    --dotted-border-color: #666;
+    --background-light: #f9f9f9;
+    --background-body: #f0f2f5;
+    --white: #fff;
+
+    /* Variables for spacing */
+    --padding-page-vertical: 25mm;
+    --padding-page-horizontal: 20mm;
+    --margin-section: 15px;
+    --margin-row: 10px;
+    --gap-form-item: 15px;
+    --gap-grid-item: 10px;
+    --indent-sub-item: 30px;
+    --checkbox-size: 1em;
+
+    /* Variables for font sizes */
+    --font-size-base: 1.1em;
+    --font-size-h1: 1.3em;
+    --font-size-example-label: 2em;
+    --font-size-section-title: 1.2em;
+    --font-size-input: 0.9em;
+    --font-size-note: 1em;
+}
+
+body {
+    font-family: 'Sarabun', sans-serif;
+    margin: 0;
+    background-color: var(--background-body);
+    color: var(--primary-text-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Language selector styles */
+.language-selector {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    font-size: var(--font-size-base);
+}
+
+.language-selector select {
+    padding: 5px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--background-light);
+    font-family: 'Sarabun', sans-serif;
+    cursor: pointer;
+}
+
+/* Instruction text styles */
+.instruction-container {
+    width: 210mm; /* Match form-page width */
+    margin: 20px auto;
+    box-sizing: border-box;
+    padding: 0 var(--padding-page-horizontal);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.instruction-text {
+    text-align: center;
+    font-size: var(--font-size-section-title); /* Consistent with section title */
+    font-weight: bold;
+    color: var(--secondary-text-color);
+    margin: 10px 0;
+    padding: 0;
+    width: 100%;
+}
+
+.instruction-line {
+    border-top: 1px dotted var(--border-color);
+    width: 100%;
+    margin: 5px 0;
+}
+
+.form-page {
+    width: 210mm;
+    min-height: 297mm;
+    background-color: var(--white);
+    padding: var(--padding-page-vertical) var(--padding-page-horizontal);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* Style for "Exemple" label */
+.example-label {
+    text-align: center;
+    font-size: var(--font-size-example-label);
+    color: var(--light-text-color);
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: var(--font-size-h1);
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+.section-title {
+    font-size: var(--font-size-section-title);
+    font-weight: bold;
+    margin-top: var(--margin-section);
+    margin-bottom: var(--margin-section);
+    padding-bottom: 0;
+}
+
+/* Base style for all underline inputs */
+.underline-input {
+    border: none;
+    border-bottom: 1px dotted var(--dotted-border-color);
+    padding: 2px 0;
+    font-size: var(--font-size-input);
+    background: transparent;
+    box-sizing: border-box;
+    font-family: 'Sarabun', sans-serif;
+    text-align: center;
+}
+
+/* Reusable Flexbox pattern for form rows (used by form-row-top and form-row) */
+.form-row,
+.form-row-top {
+    display: flex;
+    align-items: baseline;
+    gap: var(--gap-form-item);
+    margin-bottom: var(--margin-row);
+    flex-wrap: nowrap; /* Allow items to wrap if screen is too small */
+}
+
+/* Reusable Flexbox pattern for form items (label + input) */
+.form-item,
+.form-item-top,
+.flight-details-grid .grid-item { /* Apply to grid items as well for consistency */
+    display: flex;
+    align-items: baseline;
+    flex-grow: 1; /* Allow form items to grow and fill space */
+}
+
+/* Reusable label styles */
+.form-item label,
+.form-item-top label,
+.form-item-grid label,
+.flight-details-grid .grid-item label {
+    font-size: var(--font-size-base);
+    white-space: nowrap; /* Prevent label from wrapping by default */
+    margin-right: 5px; /* Space between label and input */
+    flex-shrink: 0; /* Prevent label from shrinking */
+}
+
+/* Input specific styles within form items */
+.form-item input.underline-input,
+.form-item-top input.underline-input,
+.flight-details-grid input.underline-input {
+    flex-grow: 1; /* Input fills available space */
+    width: 30px; /* Minimum width for input field */
+}
+
+/* Section: Nationality & Date (top right, uses flex) */
+.form-row-top {
+    justify-content: flex-start; /* Ensure items start from the left */
+    width: 100%;
+}
+.form-item-top input.underline-input {
+    min-width: unset; /* Remove min-width for top items to allow full growth */
+}
+
+/* Section 1: Name & Sex - Refined Grid */
+.form-row-name-sex {
+    display: grid;
+    /* กำหนด 5 คอลัมน์: Label, Input, Sex Label, Sex Option, Sex Option */
+    grid-template-columns: auto 1fr auto auto auto;
+    /* ปรับ grid-template-areas ใหม่ */
+    grid-template-areas:
+        "nameL   nameI   sexL     sexMale   ." /* Male อยู่คอลัมน์ 4 */
+        "midNL   midNI   .        sexFemale ." /* Female อยู่คอลัมน์ 4 */
+        "surNL   surNI   .        sexOther  ."; /* Other อยู่คอลัมน์ 4 เช่นกัน */
+    gap: 0px var(--gap-grid-item);
+    margin-bottom: var(--margin-row);
+    align-items: baseline;
+}
+
+.form-item-grid {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.form-item-grid label {
+    margin-bottom: 0;
+    align-self: flex-start;
+    padding-bottom: 2px;
+}
+.form-item-grid input {
+    width: 100%;
+    margin-top: 0;
+    /* Uses base underline-input style */
+}
+/* เพิ่มส่วนนี้ใน CSS ของคุณ */
+.sex-option-male   { grid-area: sexMale; }
+.sex-option-female { grid-area: sexFemale; }
+.sex-option-other  { grid-area: sexOther; }
+
+/* Grid area assignments for Name & Sex */
+.name-label        { grid-area: nameL; }
+.name-input        { grid-area: nameI; }
+.sex-label         { grid-area: sexL; text-align: right; }
+.middle-name-label { grid-area: midNL; }
+.middle-name-input { grid-area: midNI; }
+.surname-label     { grid-area: surNL; }
+.surname-input     { grid-area: surNI; }
+
+.sex-option-male,
+.sex-option-female,
+.sex-option-other {
+    font-size: var(--font-size-base);
+    margin-bottom: 5px;
+    padding-left: 0;
+    justify-self: start;
+    padding-top: 2px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.sex-option-male input[type="checkbox"],
+.sex-option-female input[type="checkbox"],
+.sex-option-other input[type="checkbox"] {
+    margin: 0;
+    width: var(--checkbox-size);
+    height: var(--checkbox-size);
+    flex-shrink: 0;
+}
+.sex-option-male label,
+.sex-option-female label,
+.sex-option-other label {
+    margin: 0;
+    white-space: nowrap;
+}
+.sex-label label { /* Specific alignment for SEX label */
+    margin-left: auto;
+    padding-right: 5px;
+    white-space: normal;
+}
+
+/* Indentation for sub-items like 'Amount with currency' */
+.form-row.sub-item-indent {
+    padding-left: var(--indent-sub-item);
+}
+
+/* Allow specific labels to wrap if marked as block-label */
+.form-row.block-label label {
+    white-space: normal;
+}
+
+
+/* Section 6 & 7: Flight Details */
+.section-flight-details {
+    margin-top: var(--margin-section);
+    margin-bottom: var(--margin-section);
+}
+
+.flight-details-main-label {
+    display: block;
+    font-size: var(--font-size-base);
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.flight-details-grid {
+    display: grid;
+    grid-template-columns: auto 1fr auto 1.2fr;
+    gap: 5px var(--gap-grid-item);
+    align-items: baseline;
+}
+
+.flight-details-grid .grid-item.label-right {
+    justify-content: flex-start;
+    white-space: nowrap;
+}
+
+/* Note box styles */
+.note-box {
+    font-size: var(--font-size-note);
+    color: var(--primary-text-color);
+    line-height: 1.4;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding: 0 5px;
+    text-indent: 0;
+}
+
+/* ส่วนสำหรับ Signature Section โดยรวม */
+.signature-section {
+    margin-top: 30px;
+    padding-right: 20px; /* ระยะห่างจากขอบขวาของหน้า */
+    width: 80%; /* กำหนดความกว้างของบล็อกลายเซ็นทั้งหมด */
+    margin-left: auto; /* จัดกึ่งกลางถ้า width ไม่เต็ม 100% หรือชิดขวาเมื่อ margin-right: 0 */
+    margin-right: 0; /* ตรึงให้ชิดขวาของ container หลัก (form-page) */
+    display: flex; /* ใช้ Flexbox เพื่อจัดการในแนวตั้ง (ถ้ามีหลายบรรทัด) */
+    flex-direction: column;
+    align-items: flex-end; /* จัดให้เนื้อหาภายใน signature-section ชิดขวา */
+}
+
+/* คอนเทนเนอร์ที่รวมข้อความและเส้นทั้งสองส่วน (ซ้าย-ขวา) ให้อยู่ในบรรทัดเดียวกัน */
+.signature-content-wrapper {
+    width: 100%; /* ให้คอนเทนเนอร์นี้กว้างเต็มที่ */
+    display: flex; /* ใช้ Flexbox เพื่อจัดวางองค์ประกอบย่อยในแนวนอน */
+    align-items: flex-end; /* จัดให้องค์ประกอบชิดขอบล่างของบรรทัด (เพื่อให้เส้นตรงกัน) */
+    justify-content: flex-end; /* ดันเนื้อหาไปทางขวา เพื่อให้เส้นเริ่มจากขวา */
+    margin-bottom: 5px; /* ระยะห่างจากด้านล่างของ wrapper ไปยังองค์ประกอบถัดไป */
+}
+
+/* กลุ่มข้อความ "Passenger's signature" และเส้นด้านซ้าย */
+.signature-label-and-line {
+    display: flex; /* ใช้ Flexbox เพื่อจัดวางข้อความและเส้นในแนวนอน */
+    align-items: flex-end; /* จัดให้ข้อความและเส้นชิดขอบล่าง */
+    flex-grow: 1; /* ให้ส่วนนี้ขยายพื้นที่เท่าที่จำเป็นเพื่อดันส่วนอื่นไปขวา */
+    justify-content: flex-end; /* จัดให้ข้อความ "Passenger's signature" ชิดซ้ายในส่วนนี้ */
+}
+
+/* ข้อความ "Passenger's signature" */
+.signature-label {
+    font-weight: bold;
+    white-space: nowrap; /* ป้องกันไม่ให้ข้อความขึ้นบรรทัดใหม่ */
+    margin-right: 5px; /* ระยะห่างจากเส้นด้านซ้าย */
+}
+
+/* กลุ่มข้อความ "Please sign your name here." และเส้นด้านขวา */
+.signature-instruction-and-line {
+    display: flex; /* ใช้ Flexbox เพื่อจัดวางข้อความและเส้นในแนวตั้ง */
+    flex-direction: column;
+    align-items: center; /* จัดให้ข้อความและเส้นอยู่ตรงกลางของคอลัมน์นี้ */
+    margin-left: 20px; /* ระยะห่างระหว่างเส้นซ้ายกับข้อความกลาง (ปรับได้) */
+    flex-shrink: 0; /* ป้องกันไม่ให้ย่อตัวลง */
+    min-width: 200px; /* กำหนดความกว้างขั้นต่ำของพื้นที่ลายเซ็น (ปรับได้) */
+}
+
+/* ข้อความ "Please sign your name here." */
+.signature-instruction {
+    font-weight: normal;
+    font-size: 0.9em;
+    white-space: nowrap; /* ป้องกันไม่ให้ข้อความขึ้นบรรทัดใหม่ */
+    margin-bottom: 3px; /* ระยะห่างระหว่างข้อความกับเส้นด้านล่าง */
+}
+
+/* เส้นด้านล่าง "Please sign your name here." ที่จะถูกลากไปทางขวา */
+.signature-line-right {
+    border-bottom: 1px solid black;
+    width: 100%; /* ให้เส้นนี้กว้างเต็มพื้นที่ของ container */
+    margin-top: 0; /* ให้เส้นชิดกับข้อความด้านบน */
+}
+ /* เพิ่มสไตล์ใหม่สำหรับ form-item ที่ต้องการให้ label และ input อยู่คนละบรรทัด */
+.form-item-stacked {
+    display: flex;
+    flex-direction: column; /* เปลี่ยนทิศทางให้เรียงจากบนลงล่าง */
+    align-items: flex-start; /* จัดให้เนื้อหาเริ่มต้นจากด้านซ้าย */
+    gap: 5px; /* เพิ่มระยะห่างเล็กน้อยระหว่าง label กับ input */
+}
+
+.form-item-stacked label {
+    margin-right: 0; /* ลบ margin-right ที่เคยมีเพื่อเว้นระยะกับ input */
+    margin-bottom: 2px; /* เพิ่มระยะห่างด้านล่าง label เล็กน้อย */
+    white-space: normal; /* อนุญาตให้ label ขึ้นบรรทัดใหม่ได้ */
+}
+
+.form-item-stacked input.underline-input {
+    width: 100%; /* ทำให้ input ขยายเต็มความกว้างที่มี */
+}
