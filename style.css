@@ -383,3 +383,52 @@ h1 {
 .form-item-stacked input.underline-input {
     width: 100%; /* ทำให้ input ขยายเต็มความกว้างที่มี */
 }
+@media (max-width: 768px) {
+    body {
+        /* Scale down the entire body content */
+        transform: scale(0.5); /* ย่อขนาดเนื้อหาทั้งหมดลง 50% */
+        transform-origin: top left; /* กำหนดจุดหมุนให้อยู่ที่มุมบนซ้าย */
+        width: 200%; /* เพิ่มความกว้างของ body เพื่อให้เนื้อหาที่ถูกย่อแสดงผลได้เต็ม */
+        height: 100%; /* เพิ่มความสูงของ body เพื่อให้เนื้อหาที่ถูกย่อแสดงผลได้เต็ม */
+        overflow: auto; /* อนุญาตให้เลื่อนดูได้หากเนื้อหาเกินหน้าจอ */
+        position: absolute; /* กำหนดตำแหน่งเป็น absolute เพื่อให้ transform ทำงานได้ถูกต้อง */
+        top: 0;
+        left: 0;
+        padding-bottom: 20mm;
+    }
+
+    .instruction-container {
+        width: 100%; /* ปรับให้ instruction-container กลับมาเต็มความกว้าง */
+        padding: 0 10mm; /* ปรับ padding ให้เหมาะสมกับหน้าจอมือถือ */
+    }
+
+    .form-page {
+        width: 100%; /* ปรับให้ form-page กลับมาเต็มความกว้าง */
+        min-height: unset; /* ลบ min-height ออก เพื่อให้ความสูงปรับตามเนื้อหา */
+        padding: 10mm; /* ปรับ padding ให้เหมาะสมกับหน้าจอมือถือ */
+        box-shadow: none; /* ลบเงาออกเพื่อความเรียบง่ายบนมือถือ */
+    }
+
+    .language-selector {
+        top: 10px;
+        right: 10px;
+    }
+
+    /* ปรับขนาดฟอนต์และระยะห่างต่างๆ เพื่อให้ดูดีขึ้นเมื่อถูกย่อขนาดโดยรวม */
+    :root {
+        --padding-page-vertical: 15mm;
+        --padding-page-horizontal: 10mm;
+        --margin-section: 10px;
+        --margin-row: 8px;
+        --gap-form-item: 10px;
+        --gap-grid-item: 8px;
+        --indent-sub-item: 20px;
+
+        --font-size-base: 1.5em; /* อาจจะต้องเพิ่มขนาดฟอนต์เล็กน้อยเพื่อให้อ่านง่ายขึ้นหลังจากการย่อ */
+        --font-size-h1: 1.9em;
+        --font-size-example-label: 2.5em;
+        --font-size-section-title: 1.8em;
+        --font-size-input: 1.5em;
+        --font-size-note: 0.9em;
+    }
+}
