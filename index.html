@@ -52,22 +52,22 @@
 
         <div class="form-row-top">
             <div class="form-item-top" style="flex-grow: 1.5;"> <label data-translate-key="nationality">Nationality</label>
-                <input type="text" id="nationality" class="underline-input" value="ENGLISH OR GBR">
+                <input type="text" id="nationality" class="underline-input" value="e.g., THAI or THA">
             </div>
             <div class="form-item-top" style="flex-grow: 1;"> <label data-translate-key="date">Date</label>
-                <input type="text" id="date" class="underline-input" value="15/07/2025">
+                <input type="text" id="date" class="underline-input" value=" (DD/MM/YYYY) ">
             </div>
         </div>
 
         <div class="form-row-name-sex">
             <div class="form-item-grid name-label">
-                <label data-translate-key="name">1. Name</label>
+                <label data-translate-key="name">1.Given Name</label>
             </div>
             <div class="form-item-grid name-input">
-                <input type="text" id="name" class="underline-input" value="JOHN">
+                <input type="text" id="name" class="underline-input" value="TORMOR">
             </div>
             <div class="form-item-grid sex-label">
-                <label data-translate-key="sex">SEX</label>
+                <label data-translate-key="sex">Sex</label>
             </div>
             <div class="sex-option-male">
                 <input type="checkbox" id="sexMale" name="sex" value="male" checked>
@@ -78,7 +78,7 @@
                 <label data-translate-key="middleName">&nbsp;&nbsp;&nbsp;Middle Name</label>
             </div>
             <div class="form-item-grid middle-name-input">
-                <input type="text" id="middleName" class="underline-input" value="DAVID">
+                <input type="text" id="middleName" class="underline-input" value= " JAIDEE J. or  —">
             </div>
             <div class="sex-option-female">
                 <input type="checkbox" id="sexFemale" name="sex" value="female">
@@ -89,7 +89,7 @@
                 <label data-translate-key="surname">&nbsp;&nbsp;&nbsp;Surname</label>
             </div>
             <div class="form-item-grid surname-input">
-                <input type="text" id="surname" class="underline-input" value="DOE">
+                <input type="text" id="surname" class="underline-input" value="MAKMAK">
             </div>
             <div class="sex-option-other">
                 <input type="checkbox" id="sexOther" name="sex" value="other">
@@ -100,7 +100,7 @@
         <div class="form-row">
             <div class="form-item full-width short-label">
                 <label data-translate-key="dob">2. Date of birth</label>
-                <input type="text" id="dob" class="underline-input" value="01/01/1985">
+                <input type="text" id="dob" class="underline-input" value="(DD/MM/YYY) e.g., 29/01/1985">
             </div>
         </div>
 
@@ -114,23 +114,23 @@
         <div class="form-row">
             <div class="form-item full-width short-label">
                 <label data-translate-key="occupation">4. Occupation</label>
-                <input type="text" id="occupation" class="underline-input" value="Engineer">
+                <input type="text" id="occupation" class="underline-input" value="e.g., Immigration officer, Student, Retired, Unemployed">
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-item long-label" style="flex-grow: 1.5;">
                 <label data-translate-key="email">&nbsp;&nbsp;&nbsp;E-mail</label>
-                <input type="text" id="email" class="underline-input" value="john.doe@example.com">
+                <input type="text" id="email" class="underline-input" value="e.g., Tormor.mak@example.com">
             </div>
             <div class="form-item long-label" style="flex-grow: 1;">
                 <label data-translate-key="tel">TEL.</label>
-                <input type="text" id="tel" class="underline-input" value="+6681234567">
+                <input type="text" id="tel" class="underline-input" value="e.g., (+66)81234567">
             </div>
         </div>
         <div class="form-row">
              <div class="form-item form-item-stacked full-width long-label accommodation-item"> <label data-translate-key="accommodationAddress">5. Accommodation name or address in Thailand</label>
-            <input type="text" id="accommodation" class="underline-input" value="ABC Hotel, 123 Sukhumvit Rd, Bangkok">
+            <input type="text" id="accommodation" class="underline-input" value="e.g., Blu monkey hotel,Patong or 123 M.4 Vichit,Muang,Phuket 83110">
          </div>
 </div>
  <div class="section-flight-details">
@@ -140,18 +140,18 @@
         </div>
         <div class="form-item grid-item date-combined">
             <label data-translate-key="flightDate">Date</label>
-            <input type="text" id="arrivalDate" class="underline-input input-flight-short">
+            <input type="text" id="arrivalDate" class="underline-input input-flight-short" Value ="DD/MM/YYYY">
         </div>
         <div class="form-item grid-item pnr-combined">
             <label data-translate-key="pnr">PNR :</label>
-            <input type="text" id="arrivalPnr" class="underline-input input-flight-short">
+            <input type="text" id="arrivalPnr" class="underline-input input-flight-short" Value="(6 Digits) AB12D3">
         </div>
     </div>
     <div class="flight-details-grid">
         <div class="grid-item label-right"><label data-translate-key="departedFrom">&nbsp;&nbsp;&nbsp;Departed from</label></div>
-        <div class="grid-item"><input type="text" id="arrivingFrom" class="underline-input input-flight-long" value="Singapore"></div>
+        <div class="grid-item"><input type="text" id="arrivingFrom" class="underline-input input-flight-long" value="e.g., Bali or DPS"></div>
         <div class="grid-item label-right"><label data-translate-key="flightNo">Flight No.</label></div>
-        <div class="grid-item"><input type="text" id="arrivalFlightNo" class="underline-input input-flight-medium"></div>
+        <div class="grid-item"><input type="text" id="arrivalFlightNo" class="underline-input input-flight-medium" Value="TG123"></div>
     </div>
 
     <div class="section-flight-details">
@@ -161,21 +161,22 @@
             </div>
             <div class="form-item grid-item departure-date-combined">
                 <label data-translate-key="flightDate">Date</label>
-                <input type="text" id="departureDate" class="underline-input input-flight-short">
+                <input type="text" id="departureDate" class="underline-input input-flight-short" value="DD/MM/YYYY">
+
             </div>
             <div class="form-item grid-item departure-pnr-combined">
                 <label data-translate-key="pnr">PNR :</label>
-                <input type="text" id="departurePnr" class="underline-input input-flight-short">
+                <input type="text" id="departurePnr" class="underline-input input-flight-short" value="(6 Digits) FG3H45">
             </div>
         </div>
         <div class="form-row secondary-departure-flight-details-row">
             <div class="form-item grid-item arrive-at-combined">
                 <label data-translate-key="arriveAt">Arrive at</label>
-                <input type="text" id="departingAt" class="underline-input input-flight-long" value="America">
+                <input type="text" id="departingAt" class="underline-input input-flight-long" value="e.g., Beijing or PEK">
             </div>
             <div class="form-item grid-item departure-flight-no-combined">
                 <label data-translate-key="flightNo">Flight No.</label>
-                <input type="text" id="departureFlightNo" class="underline-input input-flight-medium">
+                <input type="text" id="departureFlightNo" class="underline-input input-flight-medium" value="CA123">
             </div>
         </div>
     </div>
@@ -205,28 +206,28 @@
         <div class="form-row">
             <div class="form-item full-width short-label">
                 <label data-translate-key="visaType">9. Type of Visa</label>
-                <input type="text" id="visaType" class="underline-input" value="Tourist Exemption Visa">
+                <input type="text" id="visaType" class="underline-input" value="e.g., Exemption Visa, Non-Immigrant B, SMART-O, LRT-P, etc.">
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-item full-width short-label">
                 <label data-translate-key="visaPlace">10. Place of Visa Issuance</label>
-                <input type="text" id="visaPlace" class="underline-input" value="-">
+                <input type="text" id="visaPlace" class="underline-input" value="e.g., Thai Embassy in London, Phuket Immigration office, —">
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-item full-width short-label">
                 <label data-translate-key="purpose">11. Purpose of visiting</label>
-                <input type="text" id="purpose" class="underline-input" value="Tourism and vacation">
+                <input type="text" id="purpose" class="underline-input" value="e.g., Tourism, Family Reunion, Business, Muaythai Training, Treatment, etc.">
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-item full-width short-label">
                 <label data-translate-key="otherItem">12. Other</label>
-                <input type="text" id="other" class="underline-input" value="N/A">
+                <input type="text" id="other" class="underline-input" value="(if any)">
             </div>
         </div>
 
