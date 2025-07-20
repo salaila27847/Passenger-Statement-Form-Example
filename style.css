@@ -389,12 +389,14 @@ h1 {
         transform: scale(0.5); /* ย่อขนาดเนื้อหาทั้งหมดลง 50% */
         transform-origin: top left; /* กำหนดจุดหมุนให้อยู่ที่มุมบนซ้าย */
         width: 200%; /* เพิ่มความกว้างของ body เพื่อให้เนื้อหาที่ถูกย่อแสดงผลได้เต็ม */
-        height: 100%; /* เพิ่มความสูงของ body เพื่อให้เนื้อหาที่ถูกย่อแสดงผลได้เต็ม */
+        height: 150%; /* เพิ่มความสูงของ body เพื่อให้เนื้อหาที่ถูกย่อแสดงผลได้เต็ม */
         overflow: auto; /* อนุญาตให้เลื่อนดูได้หากเนื้อหาเกินหน้าจอ */
         position: absolute; /* กำหนดตำแหน่งเป็น absolute เพื่อให้ transform ทำงานได้ถูกต้อง */
         top: 0;
         left: 0;
-        padding-bottom: 20mm;
+        /*padding-bottom: 5mm;*/
+        padding-left: 5mm;
+        padding-right: 5mm;
     }
 
     .instruction-container {
