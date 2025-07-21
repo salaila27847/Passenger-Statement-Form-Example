@@ -132,6 +132,7 @@ h1 {
     box-sizing: border-box;
     font-family: 'Sarabun', sans-serif;
     text-align: center;
+    color: lightslategray;
 }
 
 /* Reusable Flexbox pattern for form rows (used by form-row-top and form-row) */
@@ -430,7 +431,7 @@ h1 {
         --font-size-h1: 1.9em;
         --font-size-example-label: 2.5em;
         --font-size-section-title: 1.8em;
-        --font-size-input: 1.5em;
+        --font-size-input: 1.1em;
         --font-size-note: 1.2em;
     }
 }

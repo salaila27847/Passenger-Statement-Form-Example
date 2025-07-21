@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let translations = {}; // ประกาศตัวแปร translations ไว้ข้างนอก เพื่อรอรับข้อมูลจาก JSON
 
     try {
-        const response = await fetch('translations.json'); // โหลดไฟล์ JSON
+        const response = await fetch('translateupdate.json'); // โหลดไฟล์ JSON
         if (!response.ok) { // ตรวจสอบว่าการโหลดสำเร็จหรือไม่
             throw new Error(`HTTP error! status: ${response.status}`);
         }
