@@ -434,4 +434,14 @@ h1 {
         --font-size-input: 1.1em;
         --font-size-note: 1.2em;
     }
+
 }
+@page {
+  size: A4;
+  margin: 0;
+}
+@media print {
+  html, body {
+    width: 210mm;
+    height: 297mm;        
+  }
