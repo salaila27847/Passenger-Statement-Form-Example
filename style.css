@@ -435,7 +435,7 @@ h1 {
         --font-size-note: 1.2em;
     }
 
-}
+} /* add more here and can delete the rest of it down below*/
 @page {
   size: A4;
   margin: 0;
@@ -446,4 +446,5 @@ h1 {
     height: 297mm;
     page-break-after: avoid;
     page-break-inside: avoid;
+    page-break-before: avoid;
   }
