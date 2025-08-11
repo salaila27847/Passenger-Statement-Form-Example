@@ -441,10 +441,36 @@ h1 {
   margin: 0;
 }
 @media print {
-  html, body {
+  html,body {
     width: 210mm;
-    height: 297mm;
+    height: 290mm;
+    align-items: center;
     page-break-after: avoid;
     page-break-inside: avoid;
     page-break-before: avoid;
+    /*transform: scale(0.86);
+    transform-origin: top left;*/
+
   }
+  .form-page{padding: 2cm;padding-top: 0;padding-bottom: 0; margin: 0cm,auto;box-shadow: none;}
+  .example-label{margin: 0px;padding: 0;}
+  .language-selector{display: none;}
+  .instruction-container:first-of-type {
+    margin-bottom: 0px; /* ปรับระยะห่างด้านล่างให้ลดลง */
+    padding: 0;  }
+  .instruction-container:last-of-type{display: none;}
+  .signature-section{margin: top 0;}
+
+  
+  :root { 
+        --font-size-base: 14px; /* อาจจะต้องเพิ่มขนาดฟอนต์เล็กน้อยเพื่อให้อ่านง่ายขึ้นหลังจากการย่อ */
+        --font-size-h1: 16px;
+        --font-size-example-label:20px;
+        --font-size-section-title: 14px;
+        --font-size-input: 12px;
+        --font-size-note: 12px;
+    }
+
+  }
+
+
