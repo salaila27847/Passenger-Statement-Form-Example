@@ -204,11 +204,15 @@
             <span data-translate-key="note1">Subsequently, after presenting and counting the financial means in accordance with Section 12(9) of the Immigration Act B.E. 2522 before the officer, I have collected the said amount and hereby affix my signature to confirm its correctness.</span>
         </div>
 
-        <div class="form-row">
-            <div class="form-item full-width short-label">
-                <label data-translate-key="visaType">9. Type of Visa</label>
-                <input type="text" id="visaType" class="underline-input" value="e.g., Exemption Visa, Non-Immigrant B, SMART-O, LRT-P, etc.">
-            </div>
+        <div class="form-row checkbox-inline-row">
+            <span class="inline-group-label" data-translate-key="visaType">9. Type of Visa</span>
+            <label class="checkbox-label"><input type="checkbox" name="visaType" value="tourist_exemption"> <span data-translate-key="visaTouristExemption">TOURIST EXEMPTION</span></label>
+            <label class="checkbox-label"><input type="checkbox" name="visaType" value="tourist"> <span data-translate-key="visaTourist">TOURIST</span></label>
+            <label class="checkbox-label"><input type="checkbox" name="visaType" value="non_immigrant"> <span data-translate-key="visaNonImmigrant">NON-IMMIGRANT</span></label>
+            <label class="checkbox-label checkbox-other-stretch">
+                <input type="checkbox" name="visaType" value="other_visa"> <span data-translate-key="visaOtherLabel">OTHER</span>
+                <input type="text" id="visaTypeOther" class="underline-input input-other-stretch" placeholder="">
+            </label>
         </div>
 
         <div class="form-row">
@@ -218,10 +222,21 @@
             </div>
         </div>
 
-        <div class="form-row">
-            <div class="form-item full-width short-label">
-                <label data-translate-key="purpose">11. Purpose of visiting</label>
-                <input type="text" id="purpose" class="underline-input" value="e.g., Tourism, Family Reunion, Business, Muaythai Training, Treatment, etc.">
+        <div class="purpose-group">
+            <div class="form-row checkbox-inline-row purpose-row-1">
+                <span class="inline-group-label" data-translate-key="purpose">11. Purpose of visiting</span>
+                <label class="checkbox-label"><input type="checkbox" name="purpose" value="tourism"> <span data-translate-key="purposeTourism">TOURISM</span></label>
+                <label class="checkbox-label"><input type="checkbox" name="purpose" value="business"> <span data-translate-key="purposeBusiness">BUSINESS / MEETING</span></label>
+            </div>
+            <div class="form-row checkbox-inline-row purpose-row-2">
+                <label class="checkbox-label"><input type="checkbox" name="purpose" value="employment"> <span data-translate-key="purposeEmployment">EMPLOYMENT</span></label>
+                <label class="checkbox-label"><input type="checkbox" name="purpose" value="transit"> <span data-translate-key="purposeTransit">TRANSIT</span></label>
+                <label class="checkbox-label"><input type="checkbox" name="purpose" value="family"> <span data-translate-key="purposeFamily">VISITING FAMILY</span></label>
+                <label class="checkbox-label"><input type="checkbox" name="purpose" value="study_internship"> <span data-translate-key="purposeStudyInternship">STUDY / INTERNSHIP</span></label>
+                <label class="checkbox-label checkbox-other-stretch">
+                    <input type="checkbox" name="purpose" value="other_purpose"> <span data-translate-key="purposeOtherLabel">OTHER</span>
+                    <input type="text" id="purposeOther" class="underline-input input-other-stretch" placeholder="">
+                </label>
             </div>
         </div>
 

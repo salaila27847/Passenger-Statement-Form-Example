@@ -384,6 +384,89 @@ h1 {
 .form-item-stacked input.underline-input {
     width: 100%; /* ทำให้ input ขยายเต็มความกว้างที่มี */
 }
+/* ===== Checkbox Inline Row Styles ===== */
+.checkbox-inline-row {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    flex-wrap: nowrap;
+    gap: 0 10px;
+    margin-bottom: 4px;
+    width: 100%;
+}
+
+.inline-group-label {
+    font-size: var(--font-size-base);
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-right: 6px;
+}
+
+.checkbox-label {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 4px;
+    font-size: var(--font-size-base);
+    cursor: pointer;
+    white-space: nowrap;
+    font-weight: normal;
+    flex-shrink: 0;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: var(--checkbox-size);
+    height: var(--checkbox-size);
+    margin: 0;
+    flex-shrink: 0;
+    cursor: pointer;
+    accent-color: #333;
+    position: relative;
+    top: 1px;
+}
+
+.checkbox-label span {
+    font-size: 0.85em;
+    letter-spacing: 0.01em;
+    line-height: 1.3;
+}
+
+/* label ที่ข้อความมี br (BUSINESS MEETING, STUDY) */
+.checkbox-label-break {
+    align-items: flex-start;
+}
+.checkbox-label-break input[type="checkbox"] {
+    margin-top: 2px;
+}
+
+/* OTHER + stretch input */
+.checkbox-other-stretch {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 4px;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.input-other-stretch {
+    flex: 1 1 auto;
+    min-width: 30px;
+    width: 100%;
+}
+
+/* Purpose group container */
+.purpose-group {
+    margin-bottom: 8px;
+}
+
+.purpose-row-1 {
+    margin-bottom: 2px;
+}
+
+.purpose-row-2 {
+    padding-left: 0;
+    margin-bottom: 4px;
+}
+
 @media (max-width: 768px) {
     body {
         /* Scale down the entire body content */
