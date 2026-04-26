@@ -226,13 +226,13 @@
             <div class="form-row checkbox-inline-row purpose-row-1">
                 <span class="inline-group-label" data-translate-key="purpose">11. Purpose of visiting</span>
                 <label class="checkbox-label"><input type="checkbox" name="purpose" value="tourism"> <span data-translate-key="purposeTourism">TOURISM</span></label>
-                <label class="checkbox-label"><input type="checkbox" name="purpose" value="business"> <span data-translate-key="purposeBusiness">BUSINESS | MEETING</span></label>
+                <label class="checkbox-label"><input type="checkbox" name="purpose" value="business"> <span data-translate-key="purposeBusiness">BUSINESS / MEETING</span></label>
             </div>
             <div class="form-row checkbox-inline-row purpose-row-2">
                 <label class="checkbox-label"><input type="checkbox" name="purpose" value="employment"> <span data-translate-key="purposeEmployment">EMPLOYMENT</span></label>
                 <label class="checkbox-label"><input type="checkbox" name="purpose" value="transit"> <span data-translate-key="purposeTransit">TRANSIT</span></label>
                 <label class="checkbox-label"><input type="checkbox" name="purpose" value="family"> <span data-translate-key="purposeFamily">VISITING FAMILY</span></label>
-                <label class="checkbox-label"><input type="checkbox" name="purpose" value="study_internship"> <span data-translate-key="purposeStudyInternship">STUDY | INTERNSHIP</span></label>
+                <label class="checkbox-label"><input type="checkbox" name="purpose" value="study_internship"> <span data-translate-key="purposeStudyInternship">STUDY / INTERNSHIP</span></label>
                 <label class="checkbox-label checkbox-other-stretch">
                     <input type="checkbox" name="purpose" value="other_purpose"> <span data-translate-key="purposeOtherLabel">OTHER</span>
                     <input type="text" id="purposeOther" class="underline-input input-other-stretch" placeholder="">
@@ -274,5 +274,29 @@
     </div>
 
     <script src="script.js" defer></script>
+    <script>
+        // Auto-scale form to fit A4 on print
+        window.addEventListener('beforeprint', function () {
+            var page = document.querySelector('.form-page');
+            var A4_HEIGHT_MM = 297;
+            var MM_TO_PX = 3.7795275591; // 1mm = 3.7795px at 96dpi
+            var a4Px = A4_HEIGHT_MM * MM_TO_PX;
+            page.style.transform = '';
+            page.style.width = '';
+            var contentH = page.scrollHeight;
+            if (contentH > a4Px) {
+                var scale = a4Px / contentH;
+                var newWidth = (210 / scale) + 'mm';
+                page.style.transformOrigin = 'top left';
+                page.style.transform = 'scale(' + scale + ')';
+                page.style.width = newWidth;
+            }
+        });
+        window.addEventListener('afterprint', function () {
+            var page = document.querySelector('.form-page');
+            page.style.transform = '';
+            page.style.width = '';
+        });
+    </script>
 </body>
 </html>
