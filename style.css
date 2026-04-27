@@ -550,8 +550,8 @@ h1 {
   .form-page {
     box-shadow: none !important;
     margin: 0 !important;
-    /* form-page กว้าง 210mm อยู่แล้ว ปรับ padding ให้พอดี */
-    padding: var(--padding-page-vertical) var(--padding-page-horizontal);
+    /* ตั้ง padding ซ้าย 30mm (3 cm) ส่วนอื่นคงเดิม */
+    padding: var(--padding-page-vertical) var(--padding-page-horizontal) var(--padding-page-vertical) 30mm;
     transform-origin: top left;
     transform: scale(0.78);
     width: 269mm; /* 210mm / 0.78 เพื่อให้หลัง scale แล้วได้ 210mm */

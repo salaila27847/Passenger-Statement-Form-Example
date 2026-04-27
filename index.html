@@ -275,14 +275,16 @@
 
     <script src="script.js" defer></script>
     <script>
-        // Auto-scale form to fit A4 on print
+        // Auto-scale form to fit A4 on print (left margin = 30mm)
         window.addEventListener('beforeprint', function () {
             var page = document.querySelector('.form-page');
             var A4_HEIGHT_MM = 297;
+            var LEFT_MARGIN_MM = 30;
             var MM_TO_PX = 3.7795275591; // 1mm = 3.7795px at 96dpi
             var a4Px = A4_HEIGHT_MM * MM_TO_PX;
             page.style.transform = '';
             page.style.width = '';
+            page.style.paddingLeft = LEFT_MARGIN_MM + 'mm';
             var contentH = page.scrollHeight;
             if (contentH > a4Px) {
                 var scale = a4Px / contentH;
