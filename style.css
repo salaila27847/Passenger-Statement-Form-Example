@@ -540,21 +540,28 @@ h1 {
   html, body {
     margin: 0;
     padding: 0;
-    width: 210mm;
+    padding-left: 30mm; /* เว้นซ้าย 3 cm ตามที่ต้องการ */
+    width: 180mm;       /* 210mm − 30mm */
     height: 297mm;
     overflow: hidden;
     background: white;
   }
 
-  /* ให้ form-page คงขนาดเดิม แล้ว scale ให้พอดี A4 */
+  /*
+   * Logic:
+   *   พื้นที่ใช้งาน = 180mm กว้าง (หลังหัก left 30mm)
+   *   form-page กว้าง 210mm → scale = 180/210 ≈ 0.857
+   *   แต่ความสูง form จริง ~381mm → 381 * 0.78 ≈ 297mm (พอดี A4)
+   *   ใช้ scale = 0.78 (height-limited) → width = 210*0.78 = 163.8mm < 180mm ✓
+   *   width ก่อน scale = 180 / 0.78 ≈ 231mm
+   */
   .form-page {
     box-shadow: none !important;
     margin: 0 !important;
-    /* ตั้ง padding ซ้าย 30mm (3 cm) ส่วนอื่นคงเดิม */
-    padding: var(--padding-page-vertical) var(--padding-page-horizontal) var(--padding-page-vertical) 30mm;
+    padding: var(--padding-page-vertical) var(--padding-page-horizontal);
     transform-origin: top left;
     transform: scale(0.78);
-    width: 269mm; /* 210mm / 0.78 เพื่อให้หลัง scale แล้วได้ 210mm */
+    width: 231mm; /* 180mm / 0.78 ≈ 231mm → หลัง scale = 180mm */
   }
 }
 
