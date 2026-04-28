@@ -537,30 +537,34 @@ h1 {
   .instruction-container { display: none !important; }
   .language-selector { display: none !important; }
 
-  html, body {
-    margin: 0;
-    padding: 0;
-    padding-left: 20mm; /* เว้นซ้าย 2 cm */
-    width: 190mm;       /* 210mm − 20mm */
-    height: 297mm;
+  html {
+    margin: 0; padding: 0;
+    height: 297mm; max-height: 297mm;
     overflow: hidden;
-    background: white;
   }
 
-  /*
-   * Logic:
-   *   พื้นที่ใช้งาน = 190mm กว้าง (หลังหัก left 20mm)
-   *   แต่ความสูง form จริง ~381mm → 381 * 0.78 ≈ 297mm (พอดี A4)
-   *   ใช้ scale = 0.78 (height-limited) → width = 210*0.78 = 163.8mm < 190mm ✓
-   *   width ก่อน scale = 190 / 0.78 ≈ 244mm
-   */
+  body {
+    margin: 0; padding: 0;
+    padding-left: 20mm;   /* เว้นซ้าย 2 cm */
+    width: 190mm;         /* 210mm − 20mm */
+    height: 297mm; max-height: 297mm;
+    overflow: hidden;
+    background: white;
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
   .form-page {
     box-shadow: none !important;
     margin: 0 !important;
     padding: var(--padding-page-vertical) var(--padding-page-horizontal);
     transform-origin: top left;
     transform: scale(0.78);
-    width: 244mm; /* 190mm / 0.78 ≈ 244mm → หลัง scale = 190mm */
+    width: 244mm;
+    page-break-inside: avoid;
+    page-break-after: avoid;
+    break-inside: avoid;
+    break-after: avoid;
   }
 }
 
