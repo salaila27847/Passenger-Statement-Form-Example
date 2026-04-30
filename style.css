@@ -540,27 +540,45 @@ h1 {
     margin: 0 !important;
     padding: 0 !important;
     width: 210mm !important;
-    height: 297mm !important;
-    max-height: 297mm !important;
-    overflow: hidden !important;
     background: white !important;
   }
 
-  /* 
-   * form-page บนหน้าเว็บกว้าง 210mm และสูงประมาณ 380-400mm
-   * scale = 297 / ~385 ≈ 0.77  →  ใช้ 0.76 เพื่อให้มีขอบนิดหน่อย
-   * หลัง scale: width = 210mm * 0.76 = 159.6mm → ขยาย width ให้กลับมา 210mm
-   * preScaleWidth = 210mm / 0.76 = 276.3mm
-   */
   .form-page {
     box-shadow: none !important;
-    margin: 0 !important;
-    transform-origin: top left !important;
-    transform: scale(0.76) !important;
-    width: 276mm !important;      /* 210 / 0.76 */
+    width: 210mm !important;
     min-height: unset !important;
-    padding: 15mm 18mm !important; /* ลด padding เล็กน้อยตอนพิมพ์ */
+    margin: 0 !important;
+    padding: 10mm 14mm !important;
+    box-sizing: border-box !important;
   }
+
+  /* ปรับ font และ spacing ให้พอดี A4 */
+  :root {
+    --font-size-base: 11pt !important;
+    --font-size-h1: 13pt !important;
+    --font-size-example-label: 20pt !important;
+    --font-size-section-title: 11pt !important;
+    --font-size-input: 9.5pt !important;
+    --font-size-note: 10pt !important;
+    --margin-section: 9px !important;
+    --margin-row: 6px !important;
+    --gap-form-item: 10px !important;
+    --gap-grid-item: 8px !important;
+    --indent-sub-item: 20px !important;
+    --checkbox-size: 0.85em !important;
+  }
+
+  h1 { margin-bottom: 8px !important; }
+  .example-label { margin-bottom: 4px !important; }
+  .section-title { margin-top: 9px !important; margin-bottom: 6px !important; }
+  .note-box { margin-top: 12px !important; margin-bottom: 12px !important; line-height: 1.4 !important; }
+  .signature-section { margin-top: 18px !important; }
+  .form-row, .form-row-top { margin-bottom: 6px !important; }
+  .form-row-name-sex { margin-bottom: 4px !important; }
+  .section-flight-details { margin-top: 6px !important; margin-bottom: 6px !important; }
+  .sub-item-indent { padding-left: 18px !important; }
+  .purpose-group { margin-bottom: 5px !important; }
+  .checkbox-inline-row { gap: 0 9px !important; margin-bottom: 3px !important; }
 }
 
 
