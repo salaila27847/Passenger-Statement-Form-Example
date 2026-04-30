@@ -274,41 +274,6 @@
     </div>
 
     <script src="script.js" defer></script>
-    <script>
-        // Auto-scale form to fit 1 A4 page with left margin 30mm
-        window.addEventListener('beforeprint', function () {
-            var page = document.querySelector('.form-page');
-            var LEFT_MM = 20;
-            var A4_W_MM = 210;
-            var A4_H_MM = 297;
-            var MM_TO_PX = 3.7795275591;
 
-            // Reset ก่อน เพื่อวัดความสูงจริง
-            page.style.transform = '';
-            page.style.width = '';
-
-            var availW = (A4_W_MM - LEFT_MM) * MM_TO_PX; // 180mm in px
-            var availH = A4_H_MM * MM_TO_PX;              // 297mm in px
-            var formW  = A4_W_MM * MM_TO_PX;              // 210mm in px
-            var formH  = page.scrollHeight;
-
-            // scale ให้ทั้งกว้างและสูงพอดี
-            var scaleW = availW / formW;  // scale ที่พอดีกว้าง
-            var scaleH = availH / formH;  // scale ที่พอดีสูง
-            var scale  = Math.min(scaleW, scaleH);
-
-            // กำหนด width ก่อน scale เพื่อให้ after-scale = availW
-            var preScaleW = availW / scale;
-
-            page.style.transformOrigin = 'top left';
-            page.style.transform = 'scale(' + scale + ')';
-            page.style.width = preScaleW + 'px';
-        });
-        window.addEventListener('afterprint', function () {
-            var page = document.querySelector('.form-page');
-            page.style.transform = '';
-            page.style.width = '';
-        });
-    </script>
 </body>
 </html>

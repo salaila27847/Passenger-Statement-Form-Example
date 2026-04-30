@@ -533,38 +533,33 @@ h1 {
   margin: 0;
 }
 @media print {
-  /* ซ่อนสิ่งที่ไม่ต้องการ */
   .instruction-container { display: none !important; }
   .language-selector { display: none !important; }
 
-  html {
-    margin: 0; padding: 0;
-    height: 297mm; max-height: 297mm;
-    overflow: hidden;
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 210mm !important;
+    height: 297mm !important;
+    max-height: 297mm !important;
+    overflow: hidden !important;
+    background: white !important;
   }
 
-  body {
-    margin: 0; padding: 0;
-    padding-left: 20mm;   /* เว้นซ้าย 2 cm */
-    width: 190mm;         /* 210mm − 20mm */
-    height: 297mm; max-height: 297mm;
-    overflow: hidden;
-    background: white;
-    page-break-after: avoid;
-    break-after: avoid;
-  }
-
+  /* 
+   * form-page บนหน้าเว็บกว้าง 210mm และสูงประมาณ 380-400mm
+   * scale = 297 / ~385 ≈ 0.77  →  ใช้ 0.76 เพื่อให้มีขอบนิดหน่อย
+   * หลัง scale: width = 210mm * 0.76 = 159.6mm → ขยาย width ให้กลับมา 210mm
+   * preScaleWidth = 210mm / 0.76 = 276.3mm
+   */
   .form-page {
     box-shadow: none !important;
     margin: 0 !important;
-    padding: var(--padding-page-vertical) var(--padding-page-horizontal);
-    transform-origin: top left;
-    transform: scale(0.78);
-    width: 244mm;
-    page-break-inside: avoid;
-    page-break-after: avoid;
-    break-inside: avoid;
-    break-after: avoid;
+    transform-origin: top left !important;
+    transform: scale(0.76) !important;
+    width: 276mm !important;      /* 210 / 0.76 */
+    min-height: unset !important;
+    padding: 15mm 18mm !important; /* ลด padding เล็กน้อยตอนพิมพ์ */
   }
 }
 
